@@ -1,0 +1,151 @@
+/* login.css */
+
+/* Стили для тела страницы */
+body {
+font-family: Arial, sans-serif;
+background-image: url("KINO1.jpg");
+background-size: cover;
+margin: 0;
+padding: 0;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+height: 100vh;
+}
+form{
+background-color: white; /* Задний фон формы белого цвета */
+border-radius: 5px;
+padding: 20px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+border: 1px solid #ccc;
+max-width: 600px; /* Установите желаемую максимальную ширину */
+width: 100%; /* Форма будет занимать 100% доступной ширины */
+margin: 0 auto; /* Центрирование формы по горизонтали */
+}
+/* Стили для текста .M */
+
+/* login.css */
+
+/* Стили для текста .M */
+.M {
+    text-align: center;
+    font-size: 66px;
+    color: transparent; /* Сделаем текст невидимым, так как будем использовать псевдоэлементы */
+    margin-top: 20px;
+    text-shadow: 8px 8px 10px rgb(0, 0, 0); /* Обводка текста */
+    font-weight: bold; /* Жирный стиль текста */
+    letter-spacing: 8px; /* Межбуквенное расстояние */
+    position: relative;
+    animation: flicker 1s infinite alternate, changeColor 5s infinite;
+}
+
+.M::before,
+.M::after {
+    content: attr(data-text); /* Отобразим текст снова */
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: transparent;
+}
+
+@keyframes flicker {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0.8;
+    }
+}
+
+@keyframes changeColor {
+    0% {
+        color: #110bb0;
+    }
+    25% {
+        color: #bde307;
+    }
+    50% {
+        color: #d02ac8;
+    }
+    75% {
+        color: #b20505;
+    }
+    100% {
+        color: #cfeee8;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Стили для контейнера формы */
+.container {
+text-align: center;
+background-color: #fff; /* Задний фон формы белого цвета */
+border-radius: 5px;
+padding: 20px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+border: 1px solid #ccc;
+max-width: 400px; /* Установите желаемую максимальную ширину */
+width: 100%; /* Форма будет занимать 100% доступной ширины */
+}
+
+/* Стили для заголовка */
+h2 {
+text-align: center;
+color: #333; /* Цвет текста заголовка */
+}
+
+/* Стили для полей ввода и кнопки */
+input[type="text"],
+input[type="password"],
+input[type="submit"] {
+width: 100%;
+padding: 10px;
+margin-bottom: 10px;
+border: 1px solid green; /* Рамка зеленого цвета */
+border-radius: 3px;
+}
+
+input[type="submit"] {
+background-color: green; /* Зеленый цвет для кнопки "Вход" */
+color: #fff; /* Цвет текста на кнопке */
+cursor: pointer;
+transition: background-color 0.3s; /* Плавное изменение цвета при наведении */
+}
+
+input[type="submit"]:hover {
+background-color: darkgreen; /* Темно-зеленый цвет при наведении на кнопку "Вход" */
+}
+
+/* Дополнительные стили для ссылок, если необходимо */
+a {
+text-decoration: none;
+color: #007bff;
+}
+
+a:hover {
+text-decoration: underline;
+}

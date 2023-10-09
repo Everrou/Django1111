@@ -1,0 +1,82 @@
+.main{
+    background-color: #ce8dc9;
+    text-decoration-color: #bde307;
+    text-align: center;
+    width: 200px;
+
+  line-height: 40px;
+  font-size: 28px;
+    color: #333;
+  border: 2px solid #333;
+  letter-spacing: 5px;
+font-weight: bold; /* Жирный стиль текста */
+}
+
+.L {
+    text-align: center;
+    font-size: 66px;
+    color: transparent; /* Сделаем текст невидимым, так как будем использовать псевдоэлементы */
+    margin-top: 20px;
+    text-shadow: 8px 8px 10px rgb(0, 0, 0); /* Обводка текста */
+    font-weight: bold; /* Жирный стиль текста */
+    letter-spacing: 8px; /* Межбуквенное расстояние */
+    position: relative;
+    animation: flicker 1s infinite alternate, changeColor 5s infinite;
+}
+
+.L::before,
+.L::after {
+    content: attr(data-text); /* Отобразим текст снова */
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: transparent;
+}
+
+@keyframes flicker {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0.8;
+    }
+}
+
+@keyframes changeColor {
+    0% {
+        color: #110bb0;
+    }
+    25% {
+        color: #bde307;
+    }
+    50% {
+        color: #d02ac8;
+    }
+    75% {
+        color: #b20505;
+    }
+    100% {
+        color: #cfeee8;
+    }
+}
+
+.cont{
+    display: flex;
+    justify-content: space-evenly;
+
+    background-color: rgba(255, 255, 255, 0.62);
+flex-wrap: wrap;
+font-weight: bold; /* Жирный стиль текста */
+}
+
+.card{
+    text-align: center;
+    border: 2px solid;
+    width: 20%;
+font-weight: bold; /* Жирный стиль текста */
+}
+
+.card img{
+    width: 100%;
+    height: 80%;
+}

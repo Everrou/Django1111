@@ -1,20 +1,17 @@
 {% extends 'index.html' %}
-{% load static %}
 {% block content %}
     <div class="center-list">
-        <h2>Каталог фильмов</h2>
-    <link rel="stylesheet" href="{% static 'css/main.css' %}">
-        <link rel="stylesheet" href="{% static 'css/podpiska.css' %}">
+        <h2>Режиссёры</h2>
         <ul>
-            {% for kino in kino_list %}
+            {% for director in director_list %}
                 <li>
-                    <a href="{{ kino.get_absolute_url }}" class="inline-a">{{ kino.title }}</a>
-                    <p>({{ kino.genre }})</p>
+                    <a href="{{ director.get_absolute_url }}"
+                       class="inline-a">{{ director.fname }} {{ director.lname }}</a>
                 </li>
             {% endfor %}
         </ul>
 
-        {% if is_paginated %}
+    {% if is_paginated %}
             {#    <div>#}
             {##}
             {#        {%if page_obj.has_previous %} {# whether the previous page exists #}
@@ -44,6 +41,8 @@
             {% endif %}
         </span>
             </div>
-        {% endif %}</div>
+        {% endif %}
+
+    </div>
 
 {% endblock content %}

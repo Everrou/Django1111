@@ -1,16 +1,135 @@
-.menu {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    background-color: gainsboro;
-    line-height: 2em;
-}
-.menu a{
-    text-decoration: none;
-    color: black;
-    font-size: 1.5em;
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    background-image: url("KINO2.jpg");
 }
 
-.menu a:hover{
-    background-color: yellow;
+
+h1 {
+    color: #333;
 }
+
+
+.menu {
+    background-color: #333;
+    color: #fff;
+    padding: 18px;
+}
+
+.menu a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 10px;
+    transition: color 0.3s; /* Плавное изменение цвета текста при наведении */
+    background-color: transparent; /* Прозрачный фон */
+    padding: 5px 10px; /* Добавим немного отступов для ссылок */
+    border-radius: 5px; /* Закруглим углы */
+}
+
+.menu a:hover {
+    text-decoration: none;
+    background-color: white; /* Белый фон при наведении */
+    color: #333; /* Цвет текста при наведении */
+}
+
+
+
+
+
+
+/* main.css */
+
+/* Content Styles */
+.content {
+    padding: 20px;
+    background-color: rgba(39, 182, 150, 0.5); /* Белый фон для контента */
+    border-radius: 5px; /* Закруглим углы контейнера */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Тень для контейнера */
+    margin-top: 20px; /* Отступ сверху */
+
+    text-align: center; /* Выравнивание текста по центру */
+    font-family: "Arial", sans-serif; /* Шрифт текста */
+}
+
+h1 {
+    color: #ff5733; /* Цвет заголовка */
+    font-size: 36px; /* Размер текста заголовка */
+    margin-bottom: 20px; /* Отступ снизу для заголовка */
+}
+
+h2 {
+    font-size: 24px; /* Размер текста в заголовках h2 */
+    margin: 10px 0; /* Отступ сверху и снизу для заголовков */
+    color: #555; /* Цвет заголовков */
+}
+
+/* Стили для отображения информации о фильмах и актерах */
+.info {
+    margin-top: 20px; /* Отступ сверху для информации */
+    color: #333; /* Цвет текста информации */
+    background: rgba(239, 255, 251, 0.86); /* Задний фон для текста */
+    padding: 10px; /* Поля внутри текста */
+    border-radius: 5px; /* Закруглим углы заднего фона */
+    font-size: 20px; /* Размер текста информации */
+}
+
+.F {
+    text-align: center;
+    font-size: 66px;
+    color: transparent; /* Сделаем текст невидимым, так как будем использовать псевдоэлементы */
+    margin-top: 20px;
+    text-shadow: 8px 8px 10px rgb(0, 0, 0); /* Обводка текста */
+    font-weight: bold; /* Жирный стиль текста */
+    letter-spacing: 8px; /* Межбуквенное расстояние */
+    position: relative;
+    animation: flicker 1s infinite alternate, changeColor 5s infinite;
+}
+
+.F::before,
+.F::after {
+    content: attr(data-text); /* Отобразим текст снова */
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: transparent;
+}
+
+@keyframes flicker {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0.8;
+    }
+}
+
+@keyframes changeColor {
+    0% {
+        color: #110bb0;
+    }
+    25% {
+        color: #bde307;
+    }
+    50% {
+        color: #d02ac8;
+    }
+    75% {
+        color: #b20505;
+    }
+    100% {
+        color: #cfeee8;
+    }
+}
+
+
+
+
+
+
+
+
+
+

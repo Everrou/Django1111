@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+
 class Genre(models.Model):
     name = models.CharField(max_length=20, verbose_name='Жанр')
 
@@ -13,6 +14,9 @@ class Director(models.Model):
     def __str__(self):
         return f'{self.fname}, {self.lname}'
 
+    def get_absolute_url(self):
+        return reverse('infodirector', args=[self.id, self.lname])
+
 class Actor(models.Model):
     fname = models.CharField(max_length=20, verbose_name='Имя')
     lname = models.CharField(max_length=20, verbose_name='Фамилия')
@@ -22,8 +26,11 @@ class Actor(models.Model):
     def __str__(self):
         return self.lname
 
+    def get_absolute_url(self):
+        return reverse('infoactor', args=[self.id, f'{self.fname} {self.lname}'])
+
 class Status(models.Model):
-    VIBOR = (('Бесплатно', 'бесплатно'), ('базовая', 'базовая'), ('супер', 'супер'))
+    VIBOR = (('Бесплатно', 'Бесплатно'), ('Базовая', 'Базовая'), ('Супер', 'Супер'))
     name = models.CharField(max_length=20, choices=VIBOR, verbose_name='Подписка')
 
     def __str__(self):
@@ -53,18 +60,21 @@ class Kino(models.Model):
     ager = models.ForeignKey(AgeRate, on_delete=models.SET_NULL, null=True)
     actor = models.ManyToManyField(Actor, verbose_name='Актеры')
     status = models.ForeignKey(Status, on_delete=models.SET_DEFAULT, default=1)
+    image = models.CharField(max_length=100, blank=True, null=True, verbose_name='Картинка')
 
     def __str__(self):
         return self.title
 
     def display_actors(self):
-        res = ''
+        res = []
         for a in self.actor.all():
-            res+=a.lname+' '
-        return res
-    display_actors.short_description = 'Актеры'
+            res.append(a.lname)
+        return ', '.join(res)
+
+    display_actors.short_description = 'Актёры'
 
     #from django.urls import reverse
     def get_absolute_url(self):
-        return reverse('info', args=[self.id])
+        return reverse('info', args=[self.id, self.title])
+        #return f'kino/{self.id}/{self.title}'
 

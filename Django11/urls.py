@@ -15,14 +15,23 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from catalog import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='home'),
     path('kino/', views.kinolist123.as_view(), name='allkino'),
-    #path('kino/<int:id>/', views.info, name='info'),
-    path('kino/<slug:pk>/', views.kinoDetail.as_view(), name='info'),
+    #path('kino/<int:id>/<str:title>', views.info, name='info'),
+    path('kino/<slug:pk>/<str:title>', views.kinoDetail.as_view(), name='info'),
+    path('user/', include('django.contrib.auth.urls')),
+    path('actor/', views.Actorlist.as_view(), name='allactors'),
+    # path('kino/<int:id>/<str:title>', views.info, name='info'),
+    path('actor/<slug:pk>/<str:name>', views.ActorDetail.as_view(), name='infoactor'),
+    path('director/', views.Directorlist.as_view(), name='alldirectors'),
+    path('director/<slug:pk>/<str:lname>', views.DirectorDetail.as_view(), name='infodirector'),
+    path('status/', views.status, name='status'),
+    path('status/prosmotr/<int:id1>/<int:id2>/<str:id3>', views.prosmotr, name='prosmotr'),
+
 
 ]
