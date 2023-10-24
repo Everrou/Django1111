@@ -78,3 +78,6 @@ class Kino(models.Model):
         return reverse('info', args=[self.id, self.title])
         #return f'kino/{self.id}/{self.title}'
 
+
+
+
